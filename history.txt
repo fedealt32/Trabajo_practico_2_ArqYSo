@@ -1,0 +1,19 @@
+    1  apt install lvm2
+    2  fdisk /dev/sdc
+    3  lsblk
+    4  fdisk /dev/sdb
+    5  lsblk
+    6  fdisk /dev/sdc
+    7  fdisk /dev/sdd
+    8  pvcreate /dev/sdb1
+    9  pvcreate /dev/sdc1
+   10  pvcreate /dev/sdd1
+   11  vgcreate datos /dev/sdb1 /dev/sdc1 /dev/sdd1
+   12  pvs
+   13  vgs
+   14  lvcreate -L 1G -n www datos
+   15  lv create -L 4G -n salvas datos
+   16  lvcreate -L 4G -n salvas datos
+   17  lvextend -L +1G /dev/datos/www
+   18  lvs
+   19  history > history.txt
